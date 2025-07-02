@@ -29,6 +29,7 @@ include 'nav.php';
                 <button type="submit">Register</button>
             </fieldset>
         </form>
+        <p>Already have an account? <a href="index.php?action=login">Login</a></p>
     </section>
 </main>
 
