@@ -123,7 +123,7 @@ class GroceryController {
                         header('Location: index.php');
                         exit();
                     } else {
-                        $error = 'Invalid username or password';
+                        setFlash('error', 'Invalid username or password.');
                         include './view/login.php';
                     }
                 } else {
@@ -175,6 +175,7 @@ class GroceryController {
                     $added = $this->model->addUser($username, $email, $passwordHash);
 
                     if ($added) {
+                        setFlash('success', 'Registration successful. You can now log in.');
                         header('Location: index.php?action=login');
                         exit();
                     } else {
