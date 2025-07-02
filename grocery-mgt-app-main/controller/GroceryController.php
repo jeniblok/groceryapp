@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once './model/Grocery.php';
+require_once './lib.php';
 
 class GroceryController {
     private $model;
