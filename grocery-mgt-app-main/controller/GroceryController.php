@@ -106,8 +106,9 @@ class GroceryController {
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $username = $_POST['username'] ?? '';
                     $password = $_POST['password'] ?? '';
+                    $remember = isset($_POST['remember']);
 
-                    $user = $this->model->findUser($username, $password);
+                    $user = $this->model->findUser($username, $password, $remember);
                     if ($user) {
                         $_SESSION['user'] = $user;
 
