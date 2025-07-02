@@ -19,7 +19,10 @@ include 'nav.php';
 
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
-
+                <input type="text" name="username" placeholder="Username" required>
+                
+                <label><input type="checkbox" name="remember"> Remember Me</label> 
+        
                 <button type="submit">Log In</button>
             </fieldset>
         </form>
