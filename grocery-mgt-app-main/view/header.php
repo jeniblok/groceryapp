@@ -1,5 +1,5 @@
 <?php
-require_once './lib/flash.php'; // +
+require_once './lib.php'; // +
 $success = getFlash('success'); // +
 $error = getFlash('error'); // +
    ?>
