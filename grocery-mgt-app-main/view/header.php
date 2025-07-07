@@ -1,3 +1,8 @@
+<?php
+require_once './lib.php'; // +
+$success = getFlash('success'); // +
+$error = getFlash('error'); // +
+   ?>
 <!DOCTYPE html>
 <html lang="en">
     <meta charset="UTF-8">
@@ -10,6 +15,12 @@
     <header>
         <h1>🥦🛒 MarketWave 🛒🌊</h1>
     </header>
+<?php if ($success): ?>
+    <p style="color:green;"><?= $success ?></p>
+<?php endif; ?>
+<?php if ($error): ?>
+    <p style="color:red;"><?= $error ?></p>
+<?php endif; ?>
     
 
     
