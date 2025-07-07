@@ -53,35 +53,36 @@ class GroceryController {
                 break;
 
             case 'add_to_cart':
-                $id = $_GET['id'] ?? null;
-                if ($id && $_SERVER['REQUEST_METHOD'] === 'POST') {
-                    $item = $this->model->getGroceryById($id);
-                    if ($item) {
-                        if (!isset($_SESSION['cart13'])) {
-                            $_SESSION['cart13'] = [];
-                        }
+    $id = $_GET['id'] ?? null;
+    if ($id && $_SERVER['REQUEST_METHOD'] === 'POST') {
+        $item = $this->model->getGroceryById($id);
+        if ($item) {
+            if (!isset($_SESSION['cart13'])) {
+                $_SESSION['cart13'] = [];
+            }
 
-                        $quantity = isset($_POST['quantity']) ? max(1, (int)$_POST['quantity']) : 1;
+            $quantity = isset($_POST['quantity']) ? max(1, (int)$_POST['quantity']) : 1;
 
-                        // Check if item already in cart, update quantity if yes
-                        $found = false;
-                        foreach ($_SESSION['cart13'] as &$cartItem) {
-                            if ($cartItem['name'] === $item['name']) {
-                                $cartItem['quantity'] += $quantity;
-                                $found = true;
-                                break;
-                            }
-                        }
-                        unset($cartItem);
-
-                        if (!$found) {
-                            $_SESSION['cart13'][] = ['name' => $item['name'], 'quantity' => $quantity];
-                        }
-                    }
+            $found = false;
+            foreach ($_SESSION['cart13'] as &$cartItem) {
+                if ($cartItem['name'] === $item['name']) {
+                    $cartItem['quantity'] += $quantity;
+                    $found = true;
+                    break;
                 }
-                header('Location: index.php?action=cart');
-                exit();
-                break;
+            }
+            unset($cartItem);
+
+            if (!$found) {
+                $_SESSION['cart13'][] = ['name' => $item['name'], 'quantity' => $quantity];
+            }
+        }
+    }
+
+    // Redirect back to the previous page
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    exit();
+    break;
 
             case 'remove_cart_item':
                 $index = $_GET['index'] ?? null;
