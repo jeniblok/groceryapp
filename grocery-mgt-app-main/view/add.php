@@ -3,6 +3,7 @@ $activePage = 'add';
 include 'header.php'; 
 include 'nav.php';
 ?>
+<div class ="container">
 <main>
     <section class="form-container">
         <h2>Custom Grocery Item</h2>
@@ -26,4 +27,5 @@ include 'nav.php';
         </form>
     </section>
 </main>
+        </div>
 <?php include 'footer.php'; ?>
