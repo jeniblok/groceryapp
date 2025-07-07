@@ -6,7 +6,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// 🔢 Total quantity in cart
+//  Total quantity in cart
 $cartCount = 0;
 if (isset($_SESSION['cart13'])) {
     foreach ($_SESSION['cart13'] as $item) {
